@@ -22,7 +22,7 @@ public class BaseClass {
 
         try {
             driver = new AndroidDriver(new URL(appiumServerUrl), capabilities);
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         } catch (MalformedURLException e) {
             e.printStackTrace();
             throw new RuntimeException("Failed to initialize the Appium driver.");
