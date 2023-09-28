@@ -7,10 +7,13 @@ import org.testng.annotations.Test;
 import smule.base.BaseClass;
 import smule.pageobjects.HomePage;
 import smule.pageobjects.LoginPage;
+import smule.pageobjects.SearchPage;
 
-public class TestLoginPage extends BaseClass {
+public class TestSearchPage extends BaseClass {
     LoginPage loginPage;
     HomePage homePage;
+    SearchPage searchPage;
+
     @BeforeMethod
     public void setUp() {
         getDriver();
@@ -22,9 +25,11 @@ public class TestLoginPage extends BaseClass {
     }
 
     @Test
-    public void shouldGoToHomePage() throws InterruptedException {
+    public void shouldGoToSearchPage() throws InterruptedException {
         loginPage = new LoginPage();
         homePage = loginPage.goToHomePage();
-        Assert.assertTrue(homePage.isSearchBarVisible());
+        searchPage = homePage.navigateToSearchPage();
+        String text = searchPage.getTextFromSearchPage();
+        Assert.assertEquals(text, "Trending", "Text from Search Page is not matching!!");
     }
 }

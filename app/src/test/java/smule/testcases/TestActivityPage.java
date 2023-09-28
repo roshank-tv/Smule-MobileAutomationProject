@@ -5,12 +5,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import smule.base.BaseClass;
+import smule.pageobjects.ActivityPage;
 import smule.pageobjects.HomePage;
 import smule.pageobjects.LoginPage;
 
-public class TestLoginPage extends BaseClass {
+public class TestActivityPage extends BaseClass {
     LoginPage loginPage;
     HomePage homePage;
+    ActivityPage activityPage;
+
     @BeforeMethod
     public void setUp() {
         getDriver();
@@ -22,9 +25,11 @@ public class TestLoginPage extends BaseClass {
     }
 
     @Test
-    public void shouldGoToHomePage() throws InterruptedException {
+    public void shouldGoToActivityPage() throws InterruptedException {
         loginPage = new LoginPage();
         homePage = loginPage.goToHomePage();
-        Assert.assertTrue(homePage.isSearchBarVisible());
+        activityPage = homePage.navigateToActivityPage();
+        String text = activityPage.getTextFromInviteButton();
+        Assert.assertEquals(text, "Invites", "Text is not matching!!");
     }
 }

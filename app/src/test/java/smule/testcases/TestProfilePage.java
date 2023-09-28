@@ -7,10 +7,13 @@ import org.testng.annotations.Test;
 import smule.base.BaseClass;
 import smule.pageobjects.HomePage;
 import smule.pageobjects.LoginPage;
+import smule.pageobjects.ProfilePage;
 
-public class TestLoginPage extends BaseClass {
+public class TestProfilePage extends BaseClass {
     LoginPage loginPage;
     HomePage homePage;
+    ProfilePage profilePage;
+
     @BeforeMethod
     public void setUp() {
         getDriver();
@@ -22,9 +25,11 @@ public class TestLoginPage extends BaseClass {
     }
 
     @Test
-    public void shouldGoToHomePage() throws InterruptedException {
+    public void shouldGoToProfilePage() throws InterruptedException {
         loginPage = new LoginPage();
         homePage = loginPage.goToHomePage();
-        Assert.assertTrue(homePage.isSearchBarVisible());
+        profilePage = homePage.navigateToProfilePage();
+        String userName = profilePage.getUserNameFromProfilePage();
+        Assert.assertEquals(userName, "RoshanKumar2807", "Username is not matching!!");
     }
 }
