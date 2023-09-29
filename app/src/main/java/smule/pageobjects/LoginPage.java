@@ -28,16 +28,16 @@ public class LoginPage extends BaseClass {
     }
 
     public void selectLanguage() {
-        ScreenActions.scrollToView("Español");
+        ScreenActions.scrollToView("English");
         languageRadioButton.click();
         okButton.click();
     }
 
-    public HomePage goToHomePage() throws InterruptedException {
+    public SongBookPage goToSongBookPage() throws InterruptedException {
         selectLanguage();
         signInWithGoogleButton.click();
         googleDp.click();
         noButton.click();
-        return new HomePage();
+        return new SongBookPage();
     }
 }

@@ -13,7 +13,9 @@ dependencies {
     implementation group: 'io.appium', name: 'java-client', version: '8.5.1'
     implementation 'org.seleniumhq.selenium:selenium-java:4.12.1'
     implementation group: 'io.appium', name: 'java-client', version: '8.5.1'
-
+    implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.24.0'
+    implementation group: 'net.sourceforge.tess4j', name: 'tess4j', version: '5.8.0'
+    implementation group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
 }
 
 java {

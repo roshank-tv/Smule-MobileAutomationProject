@@ -6,17 +6,20 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import smule.base.BaseClass;
 import smule.pageobjects.ActivityPage;
-import smule.pageobjects.HomePage;
+import smule.pageobjects.SongBookPage;
 import smule.pageobjects.LoginPage;
 
 public class TestActivityPage extends BaseClass {
     LoginPage loginPage;
-    HomePage homePage;
+    SongBookPage songBookPage;
     ActivityPage activityPage;
 
     @BeforeMethod
-    public void setUp() {
+    public void setUp() throws InterruptedException {
         getDriver();
+        loginPage = new LoginPage();
+        songBookPage = loginPage.goToSongBookPage();
+        activityPage = songBookPage.navigateToActivityPage();
     }
 
     @AfterMethod
@@ -25,11 +28,20 @@ public class TestActivityPage extends BaseClass {
     }
 
     @Test
-    public void shouldGoToActivityPage() throws InterruptedException {
-        loginPage = new LoginPage();
-        homePage = loginPage.goToHomePage();
-        activityPage = homePage.navigateToActivityPage();
-        String text = activityPage.getTextFromInviteButton();
-        Assert.assertEquals(text, "Invites", "Text is not matching!!");
+    public void shouldGoToInvitePage() {
+        boolean result = activityPage.navigateToInvitePage();
+        Assert.assertTrue(result, "Join button in InvitePage is not enabled!!");
+    }
+
+    @Test
+    public void shouldGoToNewsPage() {
+        String text = activityPage.navigateToNewsPage();
+        Assert.assertEquals(text, "No news from Smule yet", "Text from news page is not matching.");
+    }
+
+    @Test
+    public void shouldGoToNotification() {
+        boolean result = activityPage.navigateToNotificationPage();
+        Assert.assertTrue(result, "list of notification is not displayed!!");
     }
 }

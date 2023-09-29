@@ -5,17 +5,20 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import smule.base.BaseClass;
-import smule.pageobjects.HomePage;
+import smule.pageobjects.SongBookPage;
 import smule.pageobjects.LoginPage;
 import smule.pageobjects.MessagePage;
 
 public class TestMessagePage extends BaseClass {
     LoginPage loginPage;
-    HomePage homePage;
+    SongBookPage songBookPage;
     MessagePage messagePage;
     @BeforeMethod
-    public void setUp() {
+    public void setUp() throws InterruptedException {
         getDriver();
+        loginPage = new LoginPage();
+        songBookPage = loginPage.goToSongBookPage();
+        messagePage = songBookPage.navigateToMessagePage();
     }
 
     @AfterMethod
@@ -25,11 +28,10 @@ public class TestMessagePage extends BaseClass {
     }
 
     @Test
-    public void shouldGoToMessagePage() throws InterruptedException {
-        loginPage = new LoginPage();
-        homePage = loginPage.goToHomePage();
-        messagePage = homePage.navigateToMessagePage();
-        String msg = messagePage.getTextFromMessagePage();
-        Assert.assertEquals(msg, "Inbox", "Message isn't matching!!");
+    public void shouldSendMessage() {
+        String userName = "kbaganna";
+        String message = "Hii";
+        String result = messagePage.sendMessage(userName, message);
+        Assert.assertEquals(result, "Hii", "Message not sent!!");
     }
 }

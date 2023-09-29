@@ -5,12 +5,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import smule.base.BaseClass;
-import smule.pageobjects.HomePage;
+import smule.pageobjects.SongBookPage;
 import smule.pageobjects.LoginPage;
 
 public class TestLoginPage extends BaseClass {
     LoginPage loginPage;
-    HomePage homePage;
+    SongBookPage songBookPage;
     @BeforeMethod
     public void setUp() {
         getDriver();
@@ -24,7 +24,7 @@ public class TestLoginPage extends BaseClass {
     @Test
     public void shouldGoToHomePage() throws InterruptedException {
         loginPage = new LoginPage();
-        homePage = loginPage.goToHomePage();
-        Assert.assertTrue(homePage.isSearchBarVisible());
+        songBookPage = loginPage.goToSongBookPage();
+        Assert.assertTrue(songBookPage.isSearchBarVisible());
     }
 }

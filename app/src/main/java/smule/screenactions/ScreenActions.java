@@ -3,7 +3,9 @@ package smule.screenactions;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.WebElement;
 import smule.base.BaseClass;
@@ -23,5 +25,13 @@ public class ScreenActions extends BaseClass {
                 .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
                 .release()
                 .perform();
+    }
+
+    public static void longPress(WebElement element) {
+        new TouchAction(driver).longPress(LongPressOptions.longPressOptions()
+                        .withElement(ElementOption.element(element))
+                        .withDuration(Duration.ofSeconds(2)))
+                        .release()
+                        .perform();
     }
 }
