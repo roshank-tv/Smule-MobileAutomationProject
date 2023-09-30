@@ -31,3 +31,9 @@ application {
 test() {
     useTestNG()
 }
+
+test {
+    useTestNG() {
+        suites 'src/test/resources/runall-suite.xml', 'src/test/resources/sanity-suite.xml', 'src/test/resources/smoke-suite.xml', 'src/test/resources/regression-suite.xml'
+    }
+}

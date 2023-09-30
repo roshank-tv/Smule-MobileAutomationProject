@@ -1,0 +1,43 @@
+<suite name="Sanity Suite">
+    <test name="Sanity Test">
+        <classes>
+            <class name="smule.testcases.TestActivityPage">
+                <methods>
+                    <include name="shouldGoToInvitePage"/>
+                </methods>
+            </class>
+            <class name="smule.testcases.TestExplorePage">
+                <methods>
+                    <include name="shouldGotoExplorePage"/>
+                </methods>
+            </class>
+            <class name="smule.testcases.TestFeedPage">
+                <methods>
+                    <include name="shouldPlayVideo"/>
+                </methods>
+            </class>
+            <class name="smule.testcases.TestLoginPage">
+                <methods>
+                    <include name="shouldGoToSongBookPage"/>
+                </methods>
+            </class>
+            <class name="smule.testcases.TestMessagePage">
+                <methods>
+                    <include name="shouldSendMessage"/>
+                </methods>
+            </class>
+            <class name="smule.testcases.TestProfilePage">
+                <methods>
+                    <include name="shouldGoToProfilePage"/>
+                    <include name="shouldUpdateProfile"/>
+                </methods>
+            </class>
+            <class name="smule.testcases.TestSearchPage">
+                <methods>
+                    <include name="shouldGoToSearchPage"/>
+                    <include name="shouldSearchSongs"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

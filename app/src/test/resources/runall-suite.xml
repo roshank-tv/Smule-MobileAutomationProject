@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="AllTestsSuite" verbose="1">
+    <test name="All">
+        <groups>
+            <run>
+                <include name="run-all"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="smule.testcases.TestActivityPage"/>
+            <class name="smule.testcases.TestExplorePage"/>
+            <class name="smule.testcases.TestFeedPage"/>
+            <class name="smule.testcases.TestLoginPage"/>
+            <class name="smule.testcases.TestMessagePage"/>
+            <class name="smule.testcases.TestProfilePage"/>
+            <class name="smule.testcases.TestSearchPage"/>
+        </classes>
+    </test>
+</suite>

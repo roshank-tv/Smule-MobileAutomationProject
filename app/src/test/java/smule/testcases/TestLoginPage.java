@@ -22,7 +22,7 @@ public class TestLoginPage extends BaseClass {
     }
 
     @Test
-    public void shouldGoToHomePage() throws InterruptedException {
+    public void shouldGoToSongBookPage() throws InterruptedException {
         loginPage = new LoginPage();
         songBookPage = loginPage.goToSongBookPage();
         Assert.assertTrue(songBookPage.isSearchBarVisible());

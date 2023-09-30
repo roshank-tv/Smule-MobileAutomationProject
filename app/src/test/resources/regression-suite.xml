@@ -1,0 +1,24 @@
+<suite name="Regression Suite">
+    <test name="Regression Test">
+        <classes>
+            <class name="smule.testcases.TestActivityPage">
+                <methods>
+                    <include name="shouldGoToInvitePage"/>
+                    <include name="shouldGoToNotification"/>
+                </methods>
+            </class>
+            <class name="smule.testcases.TestProfilePage">
+                <methods>
+                    <include name="shouldBookMarkTheSong"/>
+                    <include name="shouldAddSongToPlaylist"/>
+                    <include name="shouldGoToInvitePage"/>
+                </methods>
+            </class>
+            <class name="smule.testcases.TestSearchPage">
+                <methods>
+                    <include name="shouldSearchSongs"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
